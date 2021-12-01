@@ -269,7 +269,7 @@ const abi = [
 ]
 
 // instantiate web3 with the infura rpc url
-const web3 = new Web3("https://ropsten.infura.io/v3/" + infuraToken);
+const web3 = new Web3("https://ropsten.infura.io/v3/546819b749eb4f07bb1ad08b8e75632a");
 
 const address = contractAddress;
 const owner = ownerAddress;

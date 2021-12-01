@@ -1,6 +1,7 @@
 // this is a basic readonly contract interaction file
 
 // this loads the web3 dependency
+//node contract.js
 const Web3 = require("web3")
 
 // this sets up my .env file
@@ -12,7 +13,7 @@ contractAddress = process.env.CONTRACT_ADDRESS
 ownerAddress = process.env.OWNER_ADDRESS
 
 // set up a RPC (remote procedure call) to connect to an ethereum node
-const rpcURL = "https://ropsten.infura.io/v3/" + infuraToken;
+const rpcURL = "https://ropsten.infura.io/v3/546819b749eb4f07bb1ad08b8e75632a";
 
 // instantiate web3 with this URL
 const web3 = new Web3(rpcURL);
@@ -277,7 +278,7 @@ const abi = [
 ]
 
 // specify our contract address 
-const address = contractAddress;
+const address = "0x4a5dae52ddb3b7537ea8e5442ce3e3e7d5ab3682";
 
 // instantiate a contract object
 const contract = new web3.eth.Contract(abi, address);
@@ -286,13 +287,13 @@ console.log("connected to contract on ropsten");
 
 
 // specify our owner address
-const owner = ownerAddress;
+const owner = "0xb94b610ec6499fe72b13b3fe48bf01357f9103c5";
 
 // run some of the methods in our contract (using javascript)
 
 const getTotalSupply = async() => {
     let totSupply = await contract.methods.totalSupply().call();
-    return totSupply;
+    return "total supply is " +totSupply;
 }
 
 const getName = async() => {
@@ -314,6 +315,7 @@ const getSymbol = async() => {
     let symbol = await contract.methods.symbol().call();
     return symbol;
 }
+
 
 const returnAllValues = async() => {
     console.log(await getTotalSupply());
